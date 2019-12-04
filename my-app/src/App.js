@@ -1,9 +1,22 @@
 import React from 'react';
-import './App.css';
+import Card from './components/Card';
+import Board from './components/Board';
 
 function App() {
   return (
-    <h1>hello</h1>
+    <div className='flexbox'>
+      <Board id="board-1" className="board">
+        <Card id="card-1" className="card" draggable="true">
+          <p>Card one</p>
+        </Card>
+      </Board>
+      <Board id="board-2" className="board">
+        <Card id="card-2" className="card" draggable="true">
+          <p>Card two</p>
+        </Card>
+      </Board>
+
+    </div>
     
   );
 }
