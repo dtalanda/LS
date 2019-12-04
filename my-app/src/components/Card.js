@@ -14,6 +14,7 @@ function Card(props) {
 
     const dragOver = e => {
         e.stopPropagation();
+        e.target.style.display = "block";
     }
 
     return (
