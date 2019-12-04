@@ -9,7 +9,9 @@ function Board(props) {
         const card = document.getElementById(card_id);
         card.style.display = 'block';
 
-        e.target.appendChild(card);
+        if(card.classList.contains(e.target.id)) {
+            e.target.appendChild(card);
+        }
     }
 
     const dragOver = e => {
