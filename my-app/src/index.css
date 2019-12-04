@@ -10,9 +10,9 @@ body {
 
 .flexbox {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-between;
   width: 100%;
-  max-width: 768px;
   height: 100vh;
   overflow: hidden;
   margin: 0 auto;
@@ -23,14 +23,34 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 300px;
   background-color: #313133;
   padding: 15px;
 }
 
 .flexbox .board .card {
-  padding: 15px 25px;
+  padding: 10px 25px;
   background-color: #f3f3f3;
   cursor: pointer;
-  margin: 0 0 15px 0;
+  margin: 15px 20px;
+  border: 1px solid;
+}
+
+.flexbox .board__word {
+  flex-direction: row;
+  height: 100px;
+  justify-content: center;
+}
+.flex {
+  display: flex;
+  width: 60%;
+  height: 50px;
+  position: absolute;
+  top: 70%;
+  left: 20%;
+}
+.flex .board{
+  background: #f3f3f3;
+  border: 1px solid;
+  height: 80px;
+  margin: 0 20px;
 }
