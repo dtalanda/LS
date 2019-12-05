@@ -1,0 +1,25 @@
+.memory {
+    height: 800px;
+    width: 800px;
+    background: blue;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    &__card {
+        display: flex;
+        width: 200px;
+        height: 267px;
+        background: wheat;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        transform: rotateY(180deg);
+        transition: 500ms;
+        font-size: 0;
+        &--rotate {
+            transform: rotateY(0deg);
+            font-size: 30px;
+            pointer-events: none;
+        }
+    }
+}
