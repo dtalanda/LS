@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import uid from 'uniqid';
-import Card from './components/Card';
+import CardContent from './components/CardContent';
 import Board from './components/Board';
+import BoardContent from './components/BoardContent';
 import bridge from './bridge.png'
 
 const App = () => {
 
   const [sentence, setSentencs] = useState([]);
-  const [answer, setAnswer] = useState([]);
+  const [question, setQuestion] = useState([]);
 
   useEffect(() => {
     setSentencs(
@@ -18,7 +19,7 @@ const App = () => {
         {name: "a", className: "jsFour", id: uid()},
       ]
     )
-    setAnswer([
+    setQuestion([
       {name: "It", className: "jsThree"},
       {name: "is", className: "jsTwo"},
       {name: "a", className: "jsFour"},
@@ -29,22 +30,10 @@ const App = () => {
 
   return (
     <>
-    <img className='img' src={bridge}></img>
+    <img className='img' src={bridge} alt={bridge}></img>
     <Board className='flexbox'>
-      <div className='flex'>
-      {answer.map(item => (
-        <Board id={item.className} className='board'/>
-      ))}
-      </div>
-      <Board id="board-1" className='board board__word'>
-        {sentence.map((item) => (
-          <Card 
-            id={item.id} 
-            className={`card ${item.className}`} 
-            draggable='true'>{item.name} 
-          </Card>
-        ))}
-        </Board>
+      <BoardContent question={question} />      
+      <CardContent sentence={sentence} />
     </Board>
     </>    
   );
