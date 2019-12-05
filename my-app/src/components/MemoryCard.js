@@ -8,9 +8,6 @@ const MemoryCard = props => {
         {arr.map(item => (
             <p className={`memory__card ${item.key}`} onClick={e => onClick(e, item)}>{item.title}</p>
         ))}
-        {arr.map(item => (
-            <p className={`memory__card ${item.key}`} onClick={e => onClick(e, item)}>{item.title}</p>
-        ))}
         </>
 
     );

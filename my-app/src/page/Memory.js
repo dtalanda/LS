@@ -20,6 +20,12 @@ const Memory = () => {
             {title: 'Bridge', key: 2},
             {title: 'Rainbow', key: 4},
             {title: 'Ball', key: 5},
+            {title: 'Rainbow', key: 4},
+            {title: 'Bed', key: 3},
+            {title: 'Sea', key: 6},
+            {title: 'Book', key: 1},
+            {title: 'Bridge', key: 2},
+            {title: 'Ball', key: 5},
         ])
         ShuffleArr = shuffleArray(arr);
     }, [])
