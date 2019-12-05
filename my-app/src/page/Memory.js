@@ -7,8 +7,10 @@ const Memory = () => {
     const [arr, setArr] = useState([]);
     const [hasFlipped, setHasFlipped] = useState(false);
     let secondCard
+    let ShuffleArr
     const [firstCard, setFirstCard] = useState();
     const [lockBoard, setLockBoard] = useState(false)
+    const [score, setScore] = useState(0)
 
     useEffect(() => {
         setArr([
@@ -19,6 +21,7 @@ const Memory = () => {
             {title: 'Rainbow', key: 4},
             {title: 'Ball', key: 5},
         ])
+        ShuffleArr = shuffleArray(arr);
     }, [])
 
     const onClick = (e, item) => {
@@ -48,10 +51,13 @@ const Memory = () => {
         const disableCards = () => {
             firstCard.removeEventListener('click', onClick);
             secondCard.removeEventListener('click', onClick);
+            setScore(score + 1)
+            if(score === arr.length - 1) {
+                alert("Gratulacje")
+            }
           
             resetBoard();
           }
-
 
         const unflipCards = () => {
         setLockBoard(true);
@@ -63,19 +69,23 @@ const Memory = () => {
                 resetBoard();
             }, 1500);
         }
-        function resetBoard() {
+        const resetBoard = () => {
             setLockBoard(false);
             setHasFlipped(false);
             setFirstCard(null);
             secondCard = null;
+        }
+
+        const shuffleArray = array => {
+            let i = array.length - 1;
+            for (; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              const temp = array[i];
+              array[i] = array[j];
+              array[j] = temp;
+            }
+            return array;
           }
-    
-
-            
-            
-
-
-    
 
     return (
         <MemoryBoard arr={arr} onClick={onClick} />
