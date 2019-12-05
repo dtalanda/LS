@@ -14,7 +14,7 @@ function Card(props) {
 
     const dragOver = e => {
         e.stopPropagation();
-        e.target.style.display = "block";
+        e.target.style.display = "flex";
     }
 
     return (
