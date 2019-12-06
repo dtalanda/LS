@@ -1,4 +1,6 @@
 .block {
+    background: linear-gradient(to bottom, rgba(142,206,204,1) 0%, rgba(142,206,204,1) 27%, rgba(142,206,204,1) 47%, rgba(42,166,162,1) 77%, rgba(42,166,162,1) 98%, rgba(42,166,162,1) 100%);
+    height: 100vh;
     &__title {
         display: flex;
         justify-content: center;
@@ -11,6 +13,7 @@
         justify-content: center;
         margin: 0 auto;
         list-style: none;
+        flex-wrap: wrap;
     }
     &__card {
         display: flex;
@@ -20,5 +23,14 @@
         height: 150px;
         width: 150px;
         margin: 15px;
+        transition: 100ms;
+        background: #f3f3f3;
+        &--correct {
+            border: 3px solid springgreen;
+        }
+        &--wrong {
+            background: red;
+            opacity: 0.6;
+        }
     }
 }
