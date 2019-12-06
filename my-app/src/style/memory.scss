@@ -4,6 +4,16 @@
     margin: 0px auto;
     display: flex;
     flex-wrap: wrap;
+    // span.memory__card {
+    //     &:before {
+    //         content: '';
+    //         height: 100%;
+    //         width: 100%;
+    //         z-index: 10;
+    //         position: absolute;
+    //         background: wheat;
+    //     }
+    // }
     &__card {
         display: flex;
         width: 200px;
@@ -20,6 +30,20 @@
             transform: rotateY(0deg);
             font-size: 30px;
             pointer-events: none;
+        }
+        &--correct {
+            box-shadow: green 0px 0px 30px;
+        }
+        &--relative {
+            position: relative;
+        }
+        &--img {
+            max-height: 90%;
+            max-width: 90%;
+            display: none;
+        }
+        &--block {
+            display: block;
         }
     }
 }

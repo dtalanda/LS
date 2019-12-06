@@ -1,33 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import MemoryBoard from '../components/MemoryBoard';
 import '../style/memory.scss';
+import book from '../icon/book.png';
+import bed from '../icon/bed.png';
+import rainbow from '../icon/rainbow.png';
+import ball from '../icon/ball.png';
+import sea from '../icon/sea.png';
+import bridge from '../icon/bridge.png';
 
 const Memory = () => {
 
     const [arr, setArr] = useState([]);
     const [hasFlipped, setHasFlipped] = useState(false);
     let secondCard
-    let ShuffleArr
+    const [imgCard, setImgCard] = useState();
     const [firstCard, setFirstCard] = useState();
     const [lockBoard, setLockBoard] = useState(false)
     const [score, setScore] = useState(0)
 
     useEffect(() => {
         setArr([
-            {title: 'Book', key: 1},
-            {title: 'Bed', key: 3},
-            {title: 'Sea', key: 6},
-            {title: 'Bridge', key: 2},
-            {title: 'Rainbow', key: 4},
-            {title: 'Ball', key: 5},
-            {title: 'Rainbow', key: 4},
-            {title: 'Bed', key: 3},
-            {title: 'Sea', key: 6},
-            {title: 'Book', key: 1},
-            {title: 'Bridge', key: 2},
-            {title: 'Ball', key: 5},
+            {source: 'Book', key: 1},
+            {source: bed, key: 3},
+            {source: 'Sea', key: 6},
+            {source: bridge, key: 2},
+            {source: rainbow, key: 4},
+            {source: 'Ball', key: 5},
+            {source: 'Rainbow', key: 4},
+            {source: 'Bed', key: 3},
+            {source: sea, key: 6},
+            {source: book, key: 1},
+            {source: 'Bridge', key: 2},
+            {source: ball, key: 5},
         ])
-        ShuffleArr = shuffleArray(arr);
+        // ShuffleArr = shuffleArray(arr);
     }, [])
 
     const onClick = (e, item) => {
@@ -38,14 +44,21 @@ const Memory = () => {
             setHasFlipped(true);
             setFirstCard(e.target)
             e.target.classList.add('memory__card--rotate')
+            if(e.target.firstElementChild !== null) {
+                e.target.firstElementChild.classList.add('memory__card--block')
+            }
             return;
         }
+        if(e.target.firstElementChild !== null) {
+            e.target.firstElementChild.classList.add('memory__card--block')
+        }
+        
+        setImgCard(e.target.firstElementChild)
 
-            
-            secondCard = e.target;
-            secondCard.classList.add('memory__card--rotate')
+        secondCard = e.target;
+        secondCard.classList.add('memory__card--rotate')
 
-            checkForMatch();
+        checkForMatch();
             
         }
 
@@ -57,6 +70,8 @@ const Memory = () => {
         const disableCards = () => {
             firstCard.removeEventListener('click', onClick);
             secondCard.removeEventListener('click', onClick);
+            firstCard.classList.add('memory__card--correct');
+            secondCard.classList.add('memory__card--correct');
             setScore(score + 1)
             if(score === arr.length - 1) {
                 alert("Gratulacje")
@@ -71,9 +86,16 @@ const Memory = () => {
             setTimeout(() => {
                 firstCard.classList.remove('memory__card--rotate');
                 secondCard.classList.remove('memory__card--rotate');
+                if(firstCard.firstElementChild !== null) {
+                    firstCard.firstElementChild.classList.remove('memory__card--block');
+                }
+                if(secondCard.firstElementChild !== null) {
+                    secondCard.firstElementChild.classList.remove('memory__card--block');
+                }
+
 
                 resetBoard();
-            }, 1500);
+            }, 1000);
         }
         const resetBoard = () => {
             setLockBoard(false);
