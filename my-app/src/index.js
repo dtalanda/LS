@@ -6,7 +6,7 @@ import Memory from './page/Memory';
 import BlockGame from './page/BlockGame';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<BlockGame />, document.getElementById('root'));
+ReactDOM.render(<Memory />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

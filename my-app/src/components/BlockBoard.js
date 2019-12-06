@@ -5,6 +5,7 @@ const BlockBoard = props => {
 
     const sentence = props.sentence;
     const img = props.img;
+    const onClick = props.onClick;
 
     return (
         <div className='block'>
@@ -15,7 +16,7 @@ const BlockBoard = props => {
                 )}
                 </>
             ))}
-            <BlockCard img={img} />
+            <BlockCard img={img} onClick={onClick} />
         </div>
     )
 }

@@ -20,9 +20,27 @@ const BlockGame = () => {
             {img: 'BLOCK', key: 1},
             {img: 'LEG', key: 4},
         ])
-    })
+    }, [])
+
+    const onClick = e => {
+        if (sentence[0].key === parseInt(e.target.id)) {
+            e.target.classList.add('block__card--correct');
+            if(sentence.length > 1) {
+                const newArr = sentence.filter((item, index) => index !== 0)
+                setSentence(newArr);
+            }
+        } else {
+            const wrong = e.target;
+            e.target.classList.add('block__card--wrong');
+            setTimeout(() => {
+                wrong.classList.remove('block__card--wrong')
+            }, 200)
+        }
+    }
+
+
     return (
-        <BlockBoard sentence={sentence} img={img} />
+        <BlockBoard sentence={sentence} img={img} onClick={onClick} />
     )
 }
 
