@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import '../style/blockGame.scss';
+import BlockBoard from '../components/BlockBoard';
+import '../style/blockGame.scss';
 
 const BlockGame = () => {
 
@@ -21,20 +22,7 @@ const BlockGame = () => {
         ])
     })
     return (
-        <>
-        {sentence.map((item, index) => (
-            <>
-            {index < 1 && (
-                <h2 key={item.key}>{item.sentence}</h2>
-            )}
-            </>
-            
-        ))}
-        {img.map(item => (
-            <p key={item.key}>{item.img}</p>
-        ))}
-        </>
-
+        <BlockBoard sentence={sentence} img={img} />
     )
 }
 
