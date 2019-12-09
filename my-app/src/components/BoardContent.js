@@ -7,7 +7,7 @@ const BoardContent = props => {
     return (
         <div className='flex'>
             {question.map(item => (
-                <Board id={item.className} className='board'/>
+                <Board id={item.className} key={item.id} className='board'/>
             ))}
         </div>
     )
