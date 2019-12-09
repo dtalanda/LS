@@ -26,11 +26,14 @@
         transition: 100ms;
         background: #f3f3f3;
         &--correct {
-            border: 3px solid springgreen;
+            background: springgreen;
         }
         &--wrong {
             background: red;
             opacity: 0.6;
+        }
+        img {
+            max-height: 100%;
         }
     }
 }

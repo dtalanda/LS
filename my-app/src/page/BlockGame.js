@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import BlockBoard from '../components/BlockBoard';
 import '../style/blockGame.scss';
+import leg from '../icon/leg.png';
+import block from '../icon/block.png';
+import train from '../icon/train.png';
+import pencil from '../icon/pencil.png';
 
 const BlockGame = () => {
 
@@ -15,10 +19,10 @@ const BlockGame = () => {
             {sentence: "It's my leg", key: 4}
         ])
         setImg([
-            {img: 'TRAIN', key: 2},
-            {img: 'PENCIL', key: 3},
-            {img: 'BLOCK', key: 1},
-            {img: 'LEG', key: 4},
+            {img: train, key: 2},
+            {img: pencil, key: 3},
+            {img: block, key: 1},
+            {img: leg, key: 4},
         ])
     }, [])
 
