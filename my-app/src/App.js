@@ -1,40 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import uid from 'uniqid';
-import CardContent from './components/CardContent';
-import Board from './components/Board';
-import BoardContent from './components/BoardContent';
-import bridge from './bridge.png'
+import {Link} from 'react-router-dom';
+
 
 const App = () => {
 
-  const [sentence, setSentencs] = useState([]);
-  const [question, setQuestion] = useState([]);
-
-  useEffect(() => {
-    setSentencs(
-      [
-        {name: "bridge.", className: "jsOne", id: uid()},
-        {name: "is", className: "jsTwo", id: uid()},
-        {name: "It", className: "jsThree", id: uid()},
-        {name: "a", className: "jsFour", id: uid()},
-      ]
-    )
-    setQuestion([
-      {name: "It", className: "jsThree"},
-      {name: "is", className: "jsTwo"},
-      {name: "a", className: "jsFour"},
-      {name: "bridge.", className: "jsOne"}
-    ])
-  }, [])
-
-
   return (
     <>
-    <img className='img' src={bridge} alt={bridge}></img>
-    <Board className='flexbox'>
-      <BoardContent question={question} />      
-      <CardContent sentence={sentence} />
-    </Board>
+      <Link to={'/dragndrop'}><button className='menu__item'>Drag and Drop</button></Link>
+      <Link to={'/blockgame'}><button className='menu__item'>Block Game</button></Link>
+      <Link to={'/memory'}><button className='menu__item'>Memory Game</button></Link>
     </>    
   );
 }
