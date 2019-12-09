@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from './Board'
+import Board from './Board';
 
 const BoardContent = props => {
     const question = props.question;
