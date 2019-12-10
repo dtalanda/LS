@@ -18,6 +18,11 @@ const Memory = () => {
     const [lockBoard, setLockBoard] = useState(false)
     const [score, setScore] = useState(0)
 
+    let reverseSound = new Audio("../sounds/reverse.mp3");
+    let correctSound = new Audio("../sounds/correct.mp3");
+    let wrongSound = new Audio("../sounds/wrong.mp3");
+
+
     useEffect(() => {
         setArr([
             {source: 'Book', key: 1},
@@ -39,6 +44,9 @@ const Memory = () => {
     const onClick = (e, item) => {
         if(lockBoard) return;
         if(e.target === firstCard) return;
+        
+        
+        reverseSound.play()
         
         if(!hasFlipped) {
             setHasFlipped(true);
@@ -72,6 +80,7 @@ const Memory = () => {
             secondCard.removeEventListener('click', onClick);
             firstCard.classList.add('memory__card--correct');
             secondCard.classList.add('memory__card--correct');
+            correctSound.play();
             setScore(score + 1)
             if(score === arr.length - 1) {
                 alert("Gratulacje")
@@ -82,6 +91,7 @@ const Memory = () => {
 
         const unflipCards = () => {
         setLockBoard(true);
+        wrongSound.play();
         
             setTimeout(() => {
                 firstCard.classList.remove('memory__card--rotate');
@@ -92,11 +102,10 @@ const Memory = () => {
                 if(secondCard.firstElementChild !== null) {
                     secondCard.firstElementChild.classList.remove('memory__card--block');
                 }
-
-
                 resetBoard();
             }, 1000);
         }
+
         const resetBoard = () => {
             setLockBoard(false);
             setHasFlipped(false);
@@ -116,7 +125,9 @@ const Memory = () => {
           }
 
     return (
+        <>
         <MemoryBoard arr={arr} onClick={onClick} />
+        </>
     )
 };
 

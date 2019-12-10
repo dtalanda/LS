@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BlockBoard from '../components/MazeBoard';
+import MazeBoard from '../components/MazeBoard';
 import '../style/maze.scss';
 import leg from '../icon/leg.png';
 import block from '../icon/block.png';
@@ -23,6 +23,9 @@ const BlockGame = () => {
 
     const [sentence, setSentence] = useState([]);
     const [img, setImg] = useState([]);
+
+    let correctSound = new Audio("../sounds/correct.mp3");
+    let wrongSound = new Audio("../sounds/wrong.mp3");
 
     useEffect(() => {
         setSentence([
@@ -54,6 +57,7 @@ const BlockGame = () => {
             {img: Square},
             {img: Square},
             {img: Square},
+
             {img: block, key: 1},
             {img: Square},
             {img: ear, key: 7},
@@ -64,6 +68,7 @@ const BlockGame = () => {
             {img: mouth, key: 14},
             {img: robot, key: 15},
             {img: hand, key: 16},
+
             {img: train, key: 2},
             {img: Square},
             {img: legs, key: 6},
@@ -74,6 +79,7 @@ const BlockGame = () => {
             {img: Square},
             {img: Square},
             {img: Square},
+
             {img: pencil, key: 3},
             {img: leg, key: 4},
             {img: window, key: 5},
@@ -90,13 +96,15 @@ const BlockGame = () => {
     const onClick = e => {
         if (sentence[0].key === parseInt(e.target.id)) {
             e.target.classList.add('block__card--correct');
+            correctSound.play();
             if(sentence.length > 1) {
                 const newArr = sentence.filter((item, index) => index !== 0)
                 setSentence(newArr);
             }
         } else {
             const wrong = e.target;
-            e.target.classList.add('block__card--wrong');
+            wrong.classList.add('block__card--wrong');
+            wrongSound.play();
             setTimeout(() => {
                 wrong.classList.remove('block__card--wrong')
             }, 200)
@@ -105,7 +113,7 @@ const BlockGame = () => {
 
 
     return (
-        <BlockBoard sentence={sentence} img={img} onClick={onClick} />
+        <MazeBoard sentence={sentence} img={img} onClick={onClick} />
     )
 }
 
