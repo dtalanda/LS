@@ -1,13 +1,11 @@
 import React from 'react';
-import BlockCard from './MazeCard';
+import MazeCard from './MazeCard';
 
 const BlockBoard = props => {
 
     const sentence = props.sentence;
     const img = props.img;
     const onClick = props.onClick;
-
-    console.log(img)
 
     return (
         <div className='block'>
@@ -18,7 +16,7 @@ const BlockBoard = props => {
                 )}
                 </>
             ))}
-            <BlockCard img={img} onClick={onClick} />
+            <MazeCard img={img} onClick={onClick} />
         </div>
     )
 }

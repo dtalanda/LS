@@ -10,7 +10,7 @@ const BlockCard = props => {
         <>
             <ul className='block__list'>
                 {img.map(item => (
-                    <li className='block__card' key={item.key}  onClick={e => onClick(e)}><img src={item.img} id={item.key}></img></li>
+                    <li className='block__card' key={item.key}  onClick={e => onClick(e)}><img src={item.img} id={item.key} alt={item.img}></img></li>
                 ))}
             </ul> 
         </>

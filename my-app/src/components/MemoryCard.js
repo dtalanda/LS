@@ -10,7 +10,7 @@ const MemoryCard = props => {
             {item.source.includes("png") 
             ?
             <span className={`memory__card ${item.key}`} key={item.key} onClick={e => onClick(e, item)} >
-                <img src={item.source} className='memory__card--img'></img>
+                <img src={item.source} className='memory__card--img' alt={item.img}></img>
             </span>
             :
             <p className={`memory__card ${item.key}`} key={item.key} onClick={e => onClick(e, item)}>{item.source}</p>
