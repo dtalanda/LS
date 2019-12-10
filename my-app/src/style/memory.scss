@@ -38,12 +38,15 @@
             position: relative;
         }
         &--img {
-            max-height: 90%;
-            max-width: 90%;
-            display: none;
+            max-height: 0%;
+            max-width: 0%;
+            transition: 500ms;
         }
         &--block {
-            display: block;
+            max-height: 90%;
+            max-width: 90%;
+            transition: 500ms;
+
         }
     }
 }
