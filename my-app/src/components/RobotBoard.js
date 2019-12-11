@@ -7,54 +7,22 @@ const RobotBoard = props => {
     let axisX = 300;
     let axisY = 300;
     let rotate = 90;
-
     let direction = 'down';
 
     const heroRef = props.heroRef;
 
     useEffect(() => {
-        document.addEventListener('keydown', (e) => keyDown(e));
+        document.addEventListener('keydown', (e) => moveHero(e));
       
         return () => {
-          document.removeEventListener('keydown', (e) => keyDown(e))
+          document.removeEventListener('keydown', (e) => moveHero(e))
         }
       }, [])
 
 
+    const moveHero = (e) => {
 
-    const moveHero = (boolean, direction ) => {
-
-        if(boolean === true && direction === 'right') {
-            axisX = axisX + 75
-            heroRef.current.style.background = `purple`
-            heroRef.current.style.left = `${axisX}px`
-        }
-        if(boolean === false && direction === 'left') {
-            axisX = axisX - 75
-            heroRef.current.style.background = `pink`
-            heroRef.current.style.left = `${axisX}px`
-        }
-        if(boolean === false && direction === 'up') {
-            axisY = axisY - 75
-            heroRef.current.style.background = `green`
-            heroRef.current.style.left = `${axisY}px`
-        }
-        if(boolean === true && direction === 'down') {
-            axisY = axisY + 75
-            heroRef.current.style.background = `black`
-            heroRef.current.style.left = `${axisY}px`
-        }
-
-        if( axisX === 150 && axisY === 450) {
-            setTimeout(() => {
-               alert('ok') 
-            }, 500)
-        }
-    }
-
-
-    const keyDown = (e) => {
-        if (e.key === "ArrowRight") {
+        if (e.key === "ArrowRight" || e === "ArrowRight" ) {
 
             rotate = rotate + 90;
             heroRef.current.style.transform = `rotate(${rotate}deg)`;
@@ -68,7 +36,7 @@ const RobotBoard = props => {
                 case 'up': direction = 'right';
                     break;
             }        
-        } else if(e.key === "ArrowLeft") {
+        } else if(e.key === "ArrowLeft" || e === "ArrowLeft") {
 
             rotate = rotate - 90;
             heroRef.current.style.transform = `rotate(${rotate}deg)`;
@@ -83,23 +51,27 @@ const RobotBoard = props => {
                 case 'down': direction = 'right';
                     break;                
             }        
-        } else if(e.key === "ArrowUp") {
+        } else if(e.key === "ArrowUp" || e === "ArrowUp") {
             switch(direction) {
                 case 'right': 
                     axisX = axisX + 75;
                     heroRef.current.style.left = `${axisX}px`;
+                    heroPosition(axisX);
                     break;
                 case 'left':
                     axisX = axisX - 75;
                     heroRef.current.style.left = `${axisX}px`;
+                    heroPosition(axisX);
                     break;
                 case 'up':
                     axisY = axisY - 75;
                     heroRef.current.style.top = `${axisY}px`;
+                    heroPosition(axisY);
                     break;
                 case 'down': 
                     axisY = axisY + 75;
                     heroRef.current.style.top = `${axisY}px`;
+                    heroPosition(axisY);
                     break;
             }
         }
@@ -114,19 +86,37 @@ const RobotBoard = props => {
             }, 500)
         }
     }
+    const heroPosition = axis => {
+        if(axis > 601) {
+            if(axis === axisY) {
+                axisY = 600;
+                heroRef.current.style.top = `600px`;  
+            } else if(axis === axisX) {
+                axisX = 600;
+                heroRef.current.style.left = `600px`;
+            }            
+        } else if(axis < -1) {
+            if(axis === axisY) {
+                axisY = 0;
+                heroRef.current.style.top = `0px`; 
+            } else if(axis === axisX) {
+                axisX = 0;
+                heroRef.current.style.left = `0px`;
+            }
+            
+        }
+    }
     
-
-
-    return (axisY, 
+    return (
         <>
             <div className='arena'>
                 <div className='hero' ref={heroRef}><img src="https://img.icons8.com/ios/50/000000/arrow.png" /></div>
                 <div className='target'></div>
             </div>
-            <button onClick={() => moveHero(true, 'right')}>Prawo</button>
-            <button onClick={() => moveHero(false, 'left' )}>Lewo</button>
-            <button onClick={() => moveHero(false, 'up' )}>Góra</button>
-            <button onClick={() => moveHero(true, 'down' )}>Dół</button>
+            <button  onClick={(e) => moveHero(e.key = "ArrowRight")}>Prawo</button>
+            <button onClick={(e) => moveHero(e.key = "ArrowLeft")}>Lewo</button>
+            <button onClick={(e) => moveHero(e.key = "ArrowUp")}>Góra</button>
+            {/* <button onClick={(e) => moveHero(true, 'down' )}>Dół</button> */}
         </>
     )
 }
