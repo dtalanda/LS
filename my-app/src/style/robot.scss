@@ -30,3 +30,24 @@
     top: 450px;
     left: 150px;
 }
+
+.button {
+    display: flex;
+    &__item {
+        display: block;
+        height: 100px;
+        width: 100px;
+        background-size: contain;
+        margin: 20px;
+        &--right {
+            background-image: url("../icon/rotateArrow.png");
+        }
+        &--left {
+            background-image: url("../icon/rotateArrow.png");
+            transform: rotateX(180deg) rotate(65deg);
+        }
+        &--up {
+            background-image: url("../icon/forwardArrow.png");
+        }
+    }
+}
