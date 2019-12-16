@@ -8,7 +8,7 @@ import ball from '../icon/ball.png';
 import sea from '../icon/sea.png';
 import bridge from '../icon/bridge.png';
 
-const Memory = () => {
+const Memory = props => {
 
     const [arr, setArr] = useState([]);
     const [hasFlipped, setHasFlipped] = useState(false);
@@ -82,8 +82,15 @@ const Memory = () => {
             secondCard.classList.add('memory__card--correct');
             correctSound.play();
             setScore(score + 1)
-            if(score === arr.length - 1) {
-                alert("Gratulacje")
+            console.log(score)
+            if(score === 5) {
+                setTimeout(() => {
+                    alert('gratulacje')
+                    setTimeout(() => {
+                        const path = '/'
+                        props.history.push(path)
+                    }, 500)                
+                }, 500)
             }
           
             resetBoard();

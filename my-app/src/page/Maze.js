@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MazeBoard from '../components/MazeBoard';
+import {Link} from 'react-router-dom';
 import '../style/maze.scss';
 import leg from '../icon/leg.png';
 import block from '../icon/block.png';
@@ -19,7 +20,7 @@ import legs from '../icon/legs.png';
 import window from '../icon/window.png';
 import Square from '../icon/square.png';
 
-const BlockGame = () => {
+const BlockGame = props => {
 
     const [sentence, setSentence] = useState([]);
     const [img, setImg] = useState([]);
@@ -93,7 +94,27 @@ const BlockGame = () => {
         ])
     }, [])
 
+    // const getConfirmation = () => {
+    //     var retVal = confirm("Continue or Cancel?");
+    //     if (retVal == true) {
+    //       document.write("Ok, continued");
+    //       return true;
+    //     } else {
+    //       document.write("Cancelled");
+    //       return false;
+    //     }
+    //   }
+
     const onClick = e => {
+        if( sentence.length === 15 ) {
+            setTimeout(() => {
+                alert('gratulacje')
+                setTimeout(() => {
+                    const path = '/'
+                    props.history.push(path)
+                }, 500)                
+            }, 500)
+        }
         if (sentence[0].key === parseInt(e.target.id)) {
             e.target.classList.add('block__card--correct');
             correctSound.play();

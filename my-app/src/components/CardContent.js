@@ -11,6 +11,7 @@ import Board from './Board';
         {sentence.map((item) => (
           <Card 
             id={item.id} 
+            sentence={sentence}
             className={`card ${item.className}`} 
             draggable='true'>{item.name} 
           </Card>

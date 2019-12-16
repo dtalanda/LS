@@ -5,10 +5,13 @@ import Board from '../components/Board';
 import BoardContent from '../components/BoardContent';
 import bridge from '../bridge.png'
 
-const DragnDrop = () => {
+const DragnDrop = props => {
 
   const [sentence, setSentencs] = useState([]);
   const [question, setQuestion] = useState([]);
+  let correctSound = new Audio("../sounds/correct.mp3");
+    let wrongSound = new Audio("../sounds/wrong.mp3");
+    const [points, setPoints] = useState(1)
 
   useEffect(() => {
     setSentencs(
@@ -27,12 +30,48 @@ const DragnDrop = () => {
     ])
   }, [])
 
+  const backToMain = () => {
+    setTimeout(() => {
+      alert('gratulacje')
+      setTimeout(() => {
+          const path = '/'
+          props.history.push(path)
+      }, 500)                
+  }, 500)
+  }
+  const drop = e => {
+    e.preventDefault();
+    const card_id = e.dataTransfer.getData('card_id');
+
+    const card = document.getElementById(card_id);
+    card.style.display = 'flex';
+    
+
+    if(card.classList.contains(e.target.id)) {
+        setPoints(points + 1)
+        e.target.appendChild(card);
+        correctSound.play();
+        if( points === sentence.length ) {
+          setTimeout(() => {
+            alert('gratulacje')
+            setTimeout(() => {
+                const path = '/'
+                props.history.push(path)
+            }, 500)                
+        }, 500)
+        }
+        
+    } else {
+        wrongSound.play();  
+    }
+}
+
 
   return (
     <>
     <img className='img' src={bridge} alt={bridge}></img>
     <Board className='flexbox'>
-      <BoardContent question={question} />      
+      <BoardContent question={question} drop={drop} history={props.history} sentence={sentence} backToMain={backToMain} />      
       <CardContent sentence={sentence} />
     </Board>
     </>    

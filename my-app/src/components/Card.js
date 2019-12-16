@@ -1,6 +1,7 @@
-import React from 'react';
+import React ,{ useState } from 'react';
 
 function Card(props) {
+    const [points, setPoints] = useState(0);
 
     const dragStart = e => {
         const target = e.target;
@@ -10,11 +11,13 @@ function Card(props) {
         setTimeout(() => {
             target.style.display = "none";
         }, 0);
+
     }
 
     const dragOver = e => {
         e.stopPropagation();
         e.target.style.display = "flex";
+
     }
 
     return (
