@@ -19,6 +19,14 @@ import hand from '../icon/hand.png';
 import legs from '../icon/legs.png';
 import window from '../icon/window.png';
 import Square from '../icon/square.png';
+import light from '../icon/light.png';
+import carCabin from '../icon/cable-car-cabin.png';
+import igloo from '../icon/igloo.png';
+import snowman from '../icon/snowman.png';
+import watermelon from '../icon/watermelon.png';
+import strawberry from '../icon/strawberry.png';
+import pine from '../icon/pine.png';
+import snowflake from '../icon/snowflake.png';
 
 const BlockGame = props => {
 
@@ -48,15 +56,15 @@ const BlockGame = props => {
             {sentence: "It's my hand.", key: 16},
         ])
         setImg([
-            {img: Square},
-            {img: Square},
-            {img: Square},
+            {img: light},
+            {img: carCabin},
+            {img: igloo},
             {img: table, key: 9},
             {img: book, key: 10},
             {img: dool, key: 11},
             {img: Square},
-            {img: Square},
-            {img: Square},
+            {img: light},
+            {img: snowman},
             {img: Square},
 
             {img: block, key: 1},
@@ -71,25 +79,25 @@ const BlockGame = props => {
             {img: hand, key: 16},
 
             {img: train, key: 2},
-            {img: Square},
+            {img: igloo},
             {img: legs, key: 6},
+            {img: watermelon},
+            {img: light},
+            {img: pine},
+            {img: snowflake},
+            {img: strawberry},
             {img: Square},
-            {img: Square},
-            {img: Square},
-            {img: Square},
-            {img: Square},
-            {img: Square},
-            {img: Square},
+            {img: snowflake},
 
             {img: pencil, key: 3},
             {img: leg, key: 4},
             {img: window, key: 5},
+            {img: carCabin},
+            {img: snowman},,
             {img: Square},
-            {img: Square},,
+            {img: pine},
             {img: Square},
-            {img: Square},
-            {img: Square},
-            {img: Square},
+            {img: light},
             {img: Square},            
         ])
     }, [])

@@ -1,23 +1,23 @@
 import React ,{ useState } from 'react';
 
 function Card(props) {
-    const [points, setPoints] = useState(0);
 
     const dragStart = e => {
-        const target = e.target;
+       const target = e.target;
 
         e.dataTransfer.setData('card_id', target.id);
 
         setTimeout(() => {
             target.style.display = "none";
+            setTimeout(() => {
+                target.style.display = "flex";
+            }, 1000)
         }, 0);
-
     }
 
     const dragOver = e => {
+        e.target.style.display = "flex"; 
         e.stopPropagation();
-        e.target.style.display = "flex";
-
     }
 
     return (
