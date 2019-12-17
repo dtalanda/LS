@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MazeBoard from '../components/MazeBoard';
-import {Link} from 'react-router-dom';
+import MazeBoard from '../components/maze/MazeBoard';
 import '../style/maze.scss';
 import leg from '../icon/leg.png';
 import block from '../icon/block.png';
@@ -102,19 +101,8 @@ const BlockGame = props => {
         ])
     }, [])
 
-    // const getConfirmation = () => {
-    //     var retVal = confirm("Continue or Cancel?");
-    //     if (retVal == true) {
-    //       document.write("Ok, continued");
-    //       return true;
-    //     } else {
-    //       document.write("Cancelled");
-    //       return false;
-    //     }
-    //   }
-
     const onClick = e => {
-        if( sentence.length === 15 ) {
+        if( sentence.length === 1 ) {
             setTimeout(() => {
                 alert('gratulacje')
                 setTimeout(() => {

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import uid from 'uniqid';
-import CardContent from '../components/CardContent';
-import Board from '../components/Board';
-import BoardContent from '../components/BoardContent';
-import bridge from '../bridge.png'
+import CardContent from '../components/dragDrop/CardContent';
+import Board from '../components/dragDrop/Board';
+import BoardContent from '../components/dragDrop/BoardContent';
+import bridge from '../bridge.png';
+import '../style/dragNdrop.scss';
 
 const DragnDrop = props => {
 

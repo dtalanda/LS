@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import RobotBoard from '../components/RobotBoard';
-import ControllRobot from '../components/ControllRobot';
+import RobotBoard from '../components/robot/RobotBoard';
 import '../style/robot.scss'
 
 
