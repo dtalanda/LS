@@ -4,25 +4,35 @@ import ControllRobot from '../components/ControllRobot';
 import '../style/robot.scss'
 
 
-const Robot = () => {
+const Robot = props => {
 
     const heroRef = useRef(null);
     const pointRef = useRef(null);
     const [arr, setArr] = useState([
-        {x: 600 , y: 600, color: 'blue', display: 'block', key: 1 },
-        {x: 0 , y: 0, color: 'red', display: 'block', key: 2 },
-        {x: 450 , y: 150, color: 'yellow', display: 'block', key: 3 },
-        {x: 150 , y: 450, color: 'black', display: 'block', key: 4 },
-        {x: 0 , y: 600, color: 'green', display: 'block', key: 5 },
-    ]);
-    let targetX = 600;
-    let targetY = 600;
 
-    let axisX = 300;
-    let axisY = 300;
-    let rotate = 90;
-    let direction = 'down';
-    let keyTarget = 0;
+        {x: 600 , y: 0, color: 'yellow', display: 'block', key: 1 },
+        {x: 0 , y: 0, color: 'red', display: 'block', key: 2 },
+        {x: 600 , y: 600, color: 'blue', display: 'block', key: 3 },
+        {x: 450 , y: 150, color: 'black', display: 'block', key: 4 },
+        {x: 150 , y: 450, color: 'green', display: 'block', key: 5 },
+    ]);
+    const [hero ,setHero] = useState({
+            axisX: 300, 
+            axisY: 300, 
+            rotate: 90, 
+            direction: 'down', 
+            targetX: 600, 
+            targetY: 0, 
+            keyTarget: 0
+        })
+
+    let axisX = hero.axisX;
+    let axisY = hero.axisY;
+    let rotate = hero.rotate;
+    let direction = hero.direction;
+    let targetX = hero.targetX;
+    let targetY = hero.targetY;
+    let keyTarget = hero.keyTarget;
 
     useEffect(() => {
         
@@ -66,6 +76,22 @@ const Robot = () => {
                 break;                
         }
     }
+
+    const heroTurnBack = (value) => {
+        rotate = rotate - value;
+        heroRef.current.style.transform = `rotate(${rotate}deg)`;
+
+        switch(direction) {
+            case 'right': direction = 'left';
+                break;
+            case 'up': direction = 'down';
+                break;
+            case 'left': direction = 'right';
+                break;
+            case 'down': direction = 'up';
+                break;                
+        }
+    }
     const heroMoveForward = (value) => {
         switch(direction) {
             case 'right': 
@@ -91,13 +117,7 @@ const Robot = () => {
         }
     }
 
-
     const heroControll = (e) => {
-        console.log(arr)
-        console.log(targetX, 'x')
-        console.log(targetX, 'y')
-        console.log(axisX, 'ox')
-        console.log(axisY, 'oy')
 
         if (e.key === "ArrowRight" || e === "ArrowRight" ) {
             heroTurnRight(90);                  
@@ -106,26 +126,47 @@ const Robot = () => {
         } else if(e.key === "ArrowUp" || e === "ArrowUp") {
             heroMoveForward(75);
         } else if(e.key === "ArrowDown" || e === "ArrowDown") {
-            heroTurnLeft(180);
+            heroTurnBack(180);
         }
 
         if( axisX === targetX && axisY === targetY) {
-            // const newArr = arr.map(item => {
-            //     if(item.x === targetX && item.y === targetY) {
-            //         return {
-            //             ...item,
-            //             display: 'none'
-            //         }
-            //     }
-            //     return item
-            // })  
-            const newArr = arr.filter((item, index) => index !== 0)
+            const newArr = arr.map(item => {
+                if(item.x === targetX && item.y === targetY) {
+                        keyTarget = item.key
+                    return {
+                        ...item,
+                        display: 'none'
+                    }
+                }
+                return item
+            })  
+            if (keyTarget === 5) {
+                setHero({
+                    axisX: axisX, 
+                    axisY: axisY, 
+                    rotate: rotate, 
+                    direction: direction, 
+                    keyTarget: keyTarget,
+                    ...hero
+                })
+                setTimeout(() => {
+                        const path = '/'
+                        props.history.push(path) 
+                        
+                }, 500)
+                
+            } else {
+               setHero({
+                axisX: axisX, 
+                axisY: axisY, 
+                rotate: rotate, 
+                direction: direction, 
+                targetX: arr[keyTarget].x, 
+                targetY: arr[keyTarget].y,
+                keyTarget: keyTarget
+                }) 
+            }
             setArr(newArr);
-            keyTarget = keyTarget + 1;
-            targetX = arr[keyTarget].x;
-            targetY = arr[keyTarget].y;
-            axisX = 300;
-            axisY = 300;
         }
     }
     const heroPosition = axis => {
@@ -145,14 +186,12 @@ const Robot = () => {
                 axisX = 0;
                 heroRef.current.style.left = `0px`;
             }
-            
         }
     }
 
     return (
         <>
-            <RobotBoard heroRef={heroRef} arr={arr} pointRef={pointRef} heroControll={heroControll} />
-            <ControllRobot />
+            <RobotBoard heroRef={heroRef} arr={arr} pointRef={pointRef} axisX={axisX} axisY={axisY} rotate={rotate} heroControll={heroControll} />
         </>
     )
 }

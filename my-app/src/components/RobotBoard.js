@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import ControllRobot from './ControllRobot';
+import HeroCharacter from './HeroCharacter';
+import TargetPoints from './TargetPoints';
+import TargetTip from './TargetTip'
+
 
 const RobotBoard = props => {
     const heroRef = props.heroRef;
     const arr = props.arr;
     const heroControll = props.heroControll;
-    const pointRef = props.pointRef;
+    const axisX = props.axisX;
+    const axisY = props.axisY;
+    const rotate = props.rotate;
     
     return (
         <>
             <div className='arena'>
-                <div className='hero' ref={heroRef}><img src="https://img.icons8.com/ios/50/000000/arrow.png" /></div>
-                {arr.map(item => (
-                    <div className='target' key={item.key} ref={pointRef} style={{top: item.x, left: item.y, display: item.display, background: item.color}} />
-                ))}
-                {/* <div className='target'></div> */}
+                <HeroCharacter 
+                    heroRef={heroRef} 
+                    axisX={axisX} 
+                    axisY={axisY} 
+                    rotate={rotate}  
+                />
+                <TargetPoints arr={arr} />
             </div>
-            <div className='button'>
-                <span onClick={(e) => heroControll(e.key = "ArrowLeft")} className='button__item button__item--left'></span>
-                <span onClick={(e) => heroControll(e.key = "ArrowUp")} className='button__item button__item--up'></span>
-                <span onClick={(e) => heroControll(e.key = "ArrowRight")} className='button__item button__item--right'></span>
-                <span onClick={(e) => heroControll(e.key = "ArrowDown" )}></span>
-            </div>
+            <TargetTip arr={arr} />
+            <ControllRobot heroControll={heroControll} />
         </>
     )
 }
