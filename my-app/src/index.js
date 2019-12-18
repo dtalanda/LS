@@ -6,6 +6,7 @@ import DragnDrop from './page/DragnDrop'
 import Memory from './page/Memory';
 import Maze from './page/Maze';
 import Robot from './page/Robot';
+import Bingo from './page/Bingo';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
@@ -13,6 +14,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
+            <Route path='/bingo' component={Bingo} />
             <Route path='/robot' component={Robot} />
             <Route path='/maze' component={Maze} />
             <Route path='/memory' component={Memory} />

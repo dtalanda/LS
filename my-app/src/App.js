@@ -11,6 +11,7 @@ const App = () => {
       <Link to={'/maze'}><button className='menu__item'>Maze Game</button></Link>
       <Link to={'/memory'}><button className='menu__item'>Memory Game</button></Link>
       <Link to={'/robot'}><button className='menu__item'>Robot Game</button></Link>
+      <Link to={'/bingo'}><button className='menu__item'>Bingo Game</button></Link>
     </div>    
   );
 }
