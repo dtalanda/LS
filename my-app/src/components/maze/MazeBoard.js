@@ -1,7 +1,7 @@
 import React from 'react';
 import MazeCard from './MazeCard';
 
-const BlockBoard = props => {
+const MazeBoard = props => {
 
     const sentence = props.sentence;
     const img = props.img;
@@ -21,4 +21,4 @@ const BlockBoard = props => {
     )
 }
 
-export default BlockBoard;
+export default MazeBoard;

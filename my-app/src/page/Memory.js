@@ -13,7 +13,6 @@ const Memory = props => {
     const [arr, setArr] = useState([]);
     const [hasFlipped, setHasFlipped] = useState(false);
     let secondCard
-    const [imgCard, setImgCard] = useState();
     const [firstCard, setFirstCard] = useState();
     const [lockBoard, setLockBoard] = useState(false)
     const [score, setScore] = useState(0)
@@ -38,7 +37,6 @@ const Memory = props => {
             {source: 'Bridge', key: 2},
             {source: ball, key: 5},
         ])
-        // ShuffleArr = shuffleArray(arr);
     }, [])
 
     const onClick = (e, item) => {
@@ -61,8 +59,6 @@ const Memory = props => {
             e.target.firstElementChild.classList.add('memory__card--block')
         }
         
-        setImgCard(e.target.firstElementChild)
-
         secondCard = e.target;
         secondCard.classList.add('memory__card--rotate')
 
@@ -82,7 +78,6 @@ const Memory = props => {
             secondCard.classList.add('memory__card--correct');
             correctSound.play();
             setScore(score + 1)
-            console.log(score)
             if(score === 5) {
                 setTimeout(() => {
                     alert('gratulacje')
@@ -120,22 +115,11 @@ const Memory = props => {
             secondCard = null;
         }
 
-        const shuffleArray = array => {
-            let i = array.length - 1;
-            for (; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              const temp = array[i];
-              array[i] = array[j];
-              array[j] = temp;
-            }
-            return array;
-          }
-
     return (
         <>
         <MemoryBoard arr={arr} onClick={onClick} />
         </>
     )
-};
+}; 
 
 export default Memory;

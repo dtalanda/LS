@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BlockCard = props => {
+const MazeCard = props => {
 
     const img = props.img;
     const onClick = props.onClick
@@ -16,4 +16,4 @@ const BlockCard = props => {
     )
 }
 
-export default BlockCard;
+export default MazeCard;

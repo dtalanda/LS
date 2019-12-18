@@ -92,7 +92,7 @@ const BlockGame = props => {
             {img: leg, key: 4},
             {img: window, key: 5},
             {img: carCabin},
-            {img: snowman},,
+            {img: snowman},
             {img: Square},
             {img: pine},
             {img: Square},
