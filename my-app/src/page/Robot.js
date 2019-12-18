@@ -39,10 +39,10 @@ const Robot = props => {
     }, arr)
 
     const keyDown = () => {
-        document.addEventListener('keydown', (e) => heroControll(e));
+        document.addEventListener('keydown', (e) => heroControll(e.key));
       
         return () => {
-          document.removeEventListener('keydown', (e) => heroControll(e))
+          document.removeEventListener('keydown', (e) => heroControll(e.key))
         }
     };
 
@@ -58,6 +58,7 @@ const Robot = props => {
                 break;
             case 'up': direction = 'right';
                 break;
+            default:
         }  
     };
     const heroTurnLeft = (value) => {
@@ -72,7 +73,8 @@ const Robot = props => {
             case 'left': direction = 'down';
                 break;
             case 'down': direction = 'right';
-                break;                
+                break;
+            default:             
         }
     }
 
@@ -88,7 +90,8 @@ const Robot = props => {
             case 'left': direction = 'right';
                 break;
             case 'down': direction = 'up';
-                break;                
+                break;
+            default:                
         }
     }
     const heroMoveForward = (value) => {
@@ -113,19 +116,25 @@ const Robot = props => {
                 heroRef.current.style.top = `${axisY}px`;
                 heroPosition(axisY);
                 break;
+            default:
         }
     }
 
     const heroControll = (e) => {
-
-        if (e.key === "ArrowRight" || e === "ArrowRight" ) {
-            heroTurnRight(90);                  
-        } else if(e.key === "ArrowLeft" || e === "ArrowLeft") {
-            heroTurnLeft(90);                    
-        } else if(e.key === "ArrowUp" || e === "ArrowUp") {
-            heroMoveForward(75);
-        } else if(e.key === "ArrowDown" || e === "ArrowDown") {
-            heroTurnBack(180);
+        switch(e) {
+            case "ArrowRight": 
+                heroTurnRight(90);    
+                break;
+            case "ArrowLeft":
+                heroTurnLeft(90);  
+                break
+            case "ArrowUp":
+                heroMoveForward(75);
+                break;
+            case "ArrowDown":
+                heroTurnBack(180);
+                break;
+            default:
         }
 
         if( axisX === targetX && axisY === targetY) {

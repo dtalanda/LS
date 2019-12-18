@@ -15,6 +15,7 @@ const RobotBoard = props => {
     
     return (
         <>
+            <TargetTip arr={arr} />
             <div className='arena'>
                 <HeroCharacter 
                     heroRef={heroRef} 
@@ -24,7 +25,7 @@ const RobotBoard = props => {
                 />
                 <TargetPoints arr={arr} />
             </div>
-            <TargetTip arr={arr} />
+            
             <ControllRobot heroControll={heroControll} />
         </>
     )

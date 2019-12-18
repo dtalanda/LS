@@ -24,9 +24,20 @@
     background: blue;
     border-radius: 50%;
 }
+.title {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    font-size: 60px;
+    color: #fff;
+    text-shadow: #000000 4px 4px 4px;
+}
 
 .button {
     display: flex;
+    justify-content: center;
     &__item {
         display: block;
         height: 100px;
@@ -42,6 +53,10 @@
         }
         &--up {
             background-image: url("../icon/forwardArrow.png");
+        }
+        &--down {
+            background-image: url("../icon/forwardArrow.png");
+            transform: rotate(180deg);
         }
     }
 }

@@ -10,7 +10,7 @@ const TargetTip = props => {
             {newArr.map((item, index) => (
                 <>
                 {index < 1 && (
-                    <h2>Collect a {item.color} dot</h2>
+                    <h2 className='title'>Collect a {item.color} dot</h2>
                 )}
                 </>
             ))}

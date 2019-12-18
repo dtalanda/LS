@@ -12,7 +12,7 @@ const HeroCharacter = props => {
                 transform: `rotate(${props.rotate}deg)`
             }} 
             ref={heroRef}>
-                <img src="https://img.icons8.com/ios/50/000000/arrow.png" />
+                <img src="https://img.icons8.com/ios/50/000000/arrow.png" alt='hero' />
         </div>
     )
 }
