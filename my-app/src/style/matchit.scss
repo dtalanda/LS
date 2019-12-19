@@ -1,0 +1,36 @@
+.matchit {
+    display: flex;
+    border: 2px solid;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 70%;
+    height: 330px;
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20vh;
+    }
+    &__item {
+        height: 250px;
+        width: 250px;
+        flex-grow: 1;
+        margin: 10px;
+        padding: 10px;
+        &--correct {
+            transition: 500ms;
+            max-height: 25%;
+            position: absolute;
+            top: 0;
+        }
+        &--position {
+            position: relative;
+        }
+    }
+    &__img {
+        max-height: 100%;
+        margin: 0 auto;
+        pointer-events: none;
+    }
+}
