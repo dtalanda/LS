@@ -1,13 +1,15 @@
 .menu {
-    display: block;
+    display: flex;
     margin: 200px auto;
-    width: 30%;
+    flex-wrap: wrap;
+    justify-content: center;
     &__item {
-        width: 100%;
+        width: 95%;
         height: 100px;
         font-size: 40px;
-        background: linear-gradient(to bottom, rgba(142,206,204,1) 0%, rgba(142,206,204,1) 27%, rgba(142,206,204,1) 47%, rgba(42,166,162,1) 77%, rgba(42,166,162,1) 98%, rgba(42,166,162,1) 100%);
+        background: linear-gradient(to bottom, #8ececc 0%, #8ececc 27%, #8ececc 47%, #2aa6a2 77%, #2aa6a2 98%, #2aa6a2 100%);
         margin: 20px;
+        padding: 20px;
         border: none;
     }
 }
