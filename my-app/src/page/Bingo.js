@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import BingoTitle from '../components/bingo/BingoTitle';
+import BingoBoard from '../components/bingo/BingoBoard';
 import '../style/bingo.scss';
 import leg from '../icon/leg.png';
 import block from '../icon/block.png';
@@ -11,49 +13,75 @@ import window from '../icon/window.png';
 import table from '../icon/table.png';
 
 
-const Bingo = () => {
+const Bingo = props => {
 
     const [arr, setArr] = useState([
-        {img: block, key: 1},
-        {img: train, key: 2},
-        {img: pencil, key: 3},
-        {img: leg, key: 4},
-        {img: window, key: 5},
-        {img: legs, key: 6},
-        {img: ear, key: 7},
-        {img: car, key: 8},
-        {img: table, key: 9},
-
-    ])
+        {img: block, key: 1, bingo: false},
+        {img: leg, key: 4, bingo: false},
+        {img: car, key: 8, bingo: false},
+        {img: pencil, key: 3, bingo: false},
+        {img: table, key: 9, bingo: false},
+        {img: legs, key: 6, bingo: false},
+        {img: window, key: 5, bingo: false},
+        {img: train, key: 2, bingo: false},
+        {img: ear, key: 7, bingo: false},
+    ]);
     const [sentence, setSentence] = useState([
-        {sentence: "I've got blocks.", key: 1},
-        {sentence: "I've got a train.", key: 2},
         {sentence: "It's a pencil.", key: 3},
-        {sentence: "It's my leg.", key: 4},
-        {sentence: "t's a window.", key: 5},
-        {sentence: "They're my legs.", key: 6}, 
         {sentence: "Ther're my ears.", key: 7},
-        {sentence: "I've got car.", key: 8},
+        {sentence: "I've got a train.", key: 2},
+        {sentence: "It's a window.", key: 5},
         {sentence: "It's a table.", key: 9},
-    ])
+        {sentence: "It's my leg.", key: 4},
+        {sentence: "They're my legs.", key: 6}, 
+        {sentence: "I've got blocks.", key: 1},
+        {sentence: "I've got car.", key: 8},
+    ]);
 
-    const randomIndex = Math.floor(Math.random() * 10);
-    console.log(randomIndex)
+    let correctSound = new Audio("../sounds/correct.mp3");
+    let wrongSound = new Audio("../sounds/wrong.mp3");
 
+    useEffect(() => {
+        randomBingo()
+    }, [])
+
+    const randomBingo = () => {
+        let randomIndex = getRandomInt(0, 9);
+        arr[randomIndex].bingo = true
+    }
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+    const filterSentence = () => {
+        const newArr = sentence.filter((el, index) => index !== 0 )
+        setSentence(newArr);
+    }
+
+    const returnToMain = () => {
+        alert('BINGO');
+        const path ='/';
+        props.history.push(path);
+    }   
+
+    const checkBingo = (item, e) => {
+        if(sentence[0].key === item.key) {
+            filterSentence();
+            e.target.style.opacity = 0.3;
+            correctSound.play();
+            if(item.bingo === true) {
+                returnToMain();
+            }
+        } else {
+            wrongSound.play();
+        }
+    }
+    
     return (
         <div className='bingo'>
-            {sentence.map((item, index) => (
-            <>
-                {index < 1 && (
-                    <h2 className='bingo__title' key={item.key}>{item.sentence}</h2>   
-                )}
-            </>
-            ))}
-            <ul className='bingo__board'>
-                {arr.map(item => (
-                   <li className='bingo__item' key={item.key}><img src={item.img} alt={item.img} /></li> 
-                ))}
-            </ul>
+            <BingoTitle sentence={sentence} />
+            <BingoBoard arr={arr} checkBingo={checkBingo} />
         </div>
     )
 }

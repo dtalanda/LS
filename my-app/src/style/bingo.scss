@@ -10,14 +10,15 @@
     &__board {
         display: flex;
         flex-wrap: wrap;
-        width: 50vw;
+        width: 45vw;
         margin: 0 auto;
     }
     &__item {
         list-style: none;
-        height: 300px;
-        margin: 8px;
+        height: 250px;
+        margin: 15px;
         border: 2px solid;
+        background: #fff;
         img {
             max-height: 100%;
         }
