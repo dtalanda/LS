@@ -1,5 +1,6 @@
 import React from 'react';
 import MazeCard from './MazeCard';
+import MazeTitle from './MazeTitle';
 
 const MazeBoard = props => {
 
@@ -9,13 +10,7 @@ const MazeBoard = props => {
 
     return (
         <div className='block'>
-            {sentence.map((item, index) => (
-                <>
-                {index < 1 && (
-                    <h2 className='block__title' key={item.key}>{item.sentence}</h2>
-                )}
-                </>
-            ))}
+            <MazeTitle sentence={sentence} />
             <MazeCard img={img} onClick={onClick} />
         </div>
     )

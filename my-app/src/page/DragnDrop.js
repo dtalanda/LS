@@ -11,8 +11,8 @@ const DragnDrop = props => {
   const [sentence, setSentencs] = useState([]);
   const [question, setQuestion] = useState([]);
   let correctSound = new Audio("../sounds/correct.mp3");
-    let wrongSound = new Audio("../sounds/wrong.mp3");
-    const [points, setPoints] = useState(1)
+  let wrongSound = new Audio("../sounds/wrong.mp3");
+  const [points, setPoints] = useState(1)
 
   useEffect(() => {
     setSentencs(
