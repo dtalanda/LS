@@ -9,7 +9,7 @@ const Board = props => {
             {arr.map((item, index) => (
                 <>
                     {index < 2 && (
-                        <img className='board__img' src={item.img} alt={item.img} />
+                        <img /*onClick={() => onClick()}*/ className='board__img' src={item.img} alt={item.img} />
                     )}
                 </>
                 ))}
