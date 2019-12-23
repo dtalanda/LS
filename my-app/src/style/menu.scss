@@ -1,0 +1,15 @@
+.menu {
+    display: flex;
+    margin: 200px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__item {
+        width: 95%;
+        height: 100px;
+        font-size: 40px;
+        background: linear-gradient(to bottom, #8ececc 0%, #8ececc 27%, #8ececc 47%, #2aa6a2 77%, #2aa6a2 98%, #2aa6a2 100%);
+        margin: 20px;
+        padding: 20px;
+        border: none;
+    }
+}

@@ -1,10 +1,6 @@
 import React, { useState  } from 'react';
-import Board from '../components/dragDrop/Board';
 import MatchItTitle from '../components/matchIt/MatchItTitle';
 import MatchItArea from '../components/matchIt/MatchItArea';
-import MatchItCard from '../components/matchIt/MatchItCard';
-import MatchItBoard from '../components/matchIt/MatchItBoard';
-import '../style/matchit.scss'; 
 import dool from '../icon/dool.png';
 import ship from '../icon/ship.png';
 import ear from '../icon/ear.png';

@@ -4,7 +4,6 @@ import CardContent from '../components/dragDrop/CardContent';
 import Board from '../components/dragDrop/Board';
 import BoardContent from '../components/dragDrop/BoardContent';
 import bridge from '../bridge.png';
-import '../style/dragNdrop.scss';
 
 const DragnDrop = props => {
 

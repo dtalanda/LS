@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import BingoTitle from '../components/bingo/BingoTitle';
 import BingoBoard from '../components/bingo/BingoBoard';
-import '../style/bingo.scss';
 import leg from '../icon/leg.png';
 import block from '../icon/block.png';
 import train from '../icon/train.png';

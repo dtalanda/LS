@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import MemoryBoard from '../components/memory/MemoryBoard';
-import '../style/memory.scss';
 import book from '../icon/book.png';
 import bed from '../icon/bed.png';
 import rainbow from '../icon/rainbow.png';

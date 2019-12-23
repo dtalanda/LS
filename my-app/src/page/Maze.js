@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import MazeBoard from '../components/maze/MazeBoard';
-import '../style/maze.scss';
 import leg from '../icon/leg.png';
 import block from '../icon/block.png';
 import train from '../icon/train.png';
