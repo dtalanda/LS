@@ -11,11 +11,17 @@ import MatchIt from './page/Matchit';
 import OneOrTwo from './page/OneOrTwo';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import Cards from './page/Cards';
+import Projector from './page/Projector';
+import Cloud from './page/Cloud';
 
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
+            <Route path='/cloud' component={Cloud} />
+            <Route path='/projector' component={Projector} />
+            <Route path='/cards' component={Cards} />
             <Route path='/oneortwo' component={OneOrTwo} />
             <Route path='/matchit' component={MatchIt} />
             <Route path='/bingo' component={Bingo} />
