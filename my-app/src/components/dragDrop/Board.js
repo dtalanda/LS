@@ -3,7 +3,7 @@ import React from 'react';
 function Board(props) {
 
     const dragOver = e => {
-        e.preventDefault();      
+        e.preventDefault();  
     }
 
     return (
