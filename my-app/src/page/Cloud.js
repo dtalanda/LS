@@ -8,7 +8,7 @@ import leg from '../icon/leg.png';
 import window from '../icon/window.png';
 
 
-const Cloud = () => {
+const Cloud = props => {
 
     const [sentence, setSentence] = useState([
         {sentence: "I've got blocks.", key: 1},
@@ -24,15 +24,36 @@ const Cloud = () => {
         {img: pencil, key: 3},
         {img: leg, key: 4},
         {img: window, key: 5},
-
-
     ])
 
+    const backToMain = () => {
+        setTimeout(() => {
+          alert('gratulacje')
+          setTimeout(() => {
+              const path = '/'
+              props.history.push(path)
+          }, 500)                
+      }, 500)
+      }
+
+    const onClick = (item, e) => {
+        if(sentence[0].key === item.key) {
+            const newSentence = sentence.filter((item, index) => index !== 0);
+            setSentence(newSentence);
+
+            e.target.classList.add('cloud__card--correct');
+
+            if(sentence.length === 1) {
+                backToMain()
+            }
+
+        }
+    }
 
     return (
         <>
         <CloudTitle sentence={sentence} />
-        <CloudBoard img={img} />
+        <CloudBoard onClick={onClick} img={img} />
         </>
 
     )

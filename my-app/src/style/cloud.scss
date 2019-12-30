@@ -1,0 +1,23 @@
+.cloud {
+    height: 250px;
+    &__list {
+        display: flex;
+        width: 80vw;
+        justify-content: center;
+        margin: 0 auto;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+    &__card {
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        width: 150px;
+        transition: 500ms;
+
+        &--correct {
+            height: 0;
+            width: 0;
+        }
+    }
+}

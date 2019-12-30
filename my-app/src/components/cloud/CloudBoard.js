@@ -3,12 +3,13 @@ import React from 'react';
 const CloudBoard = props => {
 
     const img = props.img;
+    const onClick = props.onClick;
 ;
     return (
         <>
-            <ul className='block__list'>
+            <ul className='cloud__list'>
                 {img.map(item => (
-                    <li className='block__card' key={item.key}><img src={item.img} id={item.key} alt={item.img}></img></li>
+                    <li  onClick={(e) => onClick(item, e)} key={item.key}><img src={item.img} className='cloud__card' id={item.key} alt={item.img}></img></li>
                 ))}
             </ul> 
         </>
