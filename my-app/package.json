@@ -17,7 +17,8 @@
     "react-sound": "^1.2.0",
     "shell-quote": "^1.7.2",
     "uniqid": "^5.2.0",
-    "url-parse": "^1.5.9"
+    "url-parse": "^1.5.9",
+    "word-wrap": "^1.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
