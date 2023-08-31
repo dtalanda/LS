@@ -13,7 +13,8 @@
     "react-scripts": "3.2.0",
     "react-sound": "^1.2.0",
     "shell-quote": "^1.7.2",
-    "uniqid": "^5.2.0"
+    "uniqid": "^5.2.0",
+    "url-parse": "^1.5.9"
   },
   "scripts": {
     "start": "react-scripts start",
