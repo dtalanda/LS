@@ -31,6 +31,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-sound": "^1.2.0",
+    "request": "^2.88.2",
     "scss-tokenizer": "^0.4.3",
     "shell-quote": "^1.7.2",
     "ssri": "^6.0.2",
