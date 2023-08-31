@@ -11,7 +11,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-sound": "^1.2.0",
-    "uniqid": "^5.2.0"
+    "uniqid": "^5.2.0",
+    "y18n": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
