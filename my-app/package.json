@@ -8,6 +8,7 @@
     "ansi-regex": "^5.0.1",
     "async": "^2.6.4",
     "eventsource": "^1.1.1",
+    "follow-redirects": "^1.14.8",
     "handlebars": "^4.7.7",
     "json-schema": "^0.4.0",
     "json5": "^1.0.2",
