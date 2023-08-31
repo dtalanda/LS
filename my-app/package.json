@@ -5,6 +5,7 @@
   "dependencies": {
     "ansi-regex": "^5.0.1",
     "eventsource": "^1.1.1",
+    "json-schema": "^0.4.0",
     "loader-utils": "^1.4.1",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
