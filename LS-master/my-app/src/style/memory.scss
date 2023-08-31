@@ -1,0 +1,46 @@
+body {
+    background: linear-gradient(to bottom, rgba(217,171,20,1) 0%, rgba(242,218,132,1) 27%, rgba(242,218,132,1) 47%, rgba(242,218,132,1) 79%, rgba(217,171,20,1) 98%, rgba(217,171,20,1) 100%);
+
+}
+.memory {
+    height: 800px;
+    width: 1000px;
+    margin: 0px auto;
+    display: flex;
+    flex-wrap: wrap;
+    &__card {
+        display: flex;
+        width: 200px;
+        height: 267px;
+        background: wheat;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        transform: rotateY(180deg);
+        transition: 500ms;
+        font-size: 0;
+        margin: 15px;
+        &--rotate {
+            transform: rotateY(0deg);
+            font-size: 30px;
+            pointer-events: none;
+        }
+        &--correct {
+            box-shadow: green 0px 0px 30px;
+        }
+        &--relative {
+            position: relative;
+        }
+        &--img {
+            max-height: 0%;
+            max-width: 0%;
+            transition: 500ms;
+        }
+        &--block {
+            max-height: 90%;
+            max-width: 90%;
+            transition: 500ms;
+
+        }
+    }
+}

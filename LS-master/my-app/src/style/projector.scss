@@ -1,0 +1,31 @@
+.projector {
+    display: flex;
+    &__title {
+        font-size: 0;
+        display: flex;
+        justify-content: center;
+        height: 30px;
+        margin: 20px;
+        transition: 500ms;
+    }
+    &__board {
+        background: #fff;
+        height: 500px;
+        width: 800px;
+        margin: 100px;
+        .projector__card {
+            height: 100%;
+        }
+    }
+    &__card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
+    &__img {
+        max-height: 300px;
+        pointer-events: none;
+    }
+    
+}

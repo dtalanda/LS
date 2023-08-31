@@ -1,0 +1,26 @@
+.bingo {
+    &__title {
+        display: flex;
+        justify-content: center;
+        margin: 30px;
+        font-size: 50px;
+        color: #ffffff;
+        text-shadow: 4px 4px 4px #111;
+    }
+    &__board {
+        display: flex;
+        flex-wrap: wrap;
+        width: 45vw;
+        margin: 0 auto;
+    }
+    &__item {
+        list-style: none;
+        height: 250px;
+        margin: 15px;
+        border: 2px solid;
+        background: #fff;
+        img {
+            max-height: 100%;
+        }
+    }
+}
