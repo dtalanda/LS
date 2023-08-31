@@ -38,6 +38,7 @@
     "trim-newlines": "^3.0.1",
     "uniqid": "^5.2.0",
     "url-parse": "^1.5.9",
+    "websocket-extensions": "^0.1.4",
     "word-wrap": "^1.2.5",
     "y18n": "^4.0.1"
   },
