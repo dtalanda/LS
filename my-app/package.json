@@ -26,7 +26,7 @@
     "json-schema": "^0.4.0",
     "json5": "^1.0.2",
     "kind-of": "^6.0.3",
-    "loader-utils": "^2.0.4",
+    "loader-utils": "^3.2.1",
     "merge-deep": "^3.0.3",
     "node-notifier": "^8.0.1",
     "node-sass": "^4.13.1",
